@@ -1,7 +1,6 @@
 (ns org.keybase.proofs
-  "Helper functions for integrating services with Keybase proofs.
-  Full documentation available at https://keybase.io/docs/proof_integration_guide."
-  (require [clj-http.client :as http-client]))
+  "Helper functions for integrating services with Keybase proofs. Full documentation available at https://keybase.io/docs/proof_integration_guide."
+  (:require [clj-http.client :as http-client]))
 
 (defn make-profile-link
   "Returns a URL pointing to a Keybase profile on https://keybase.io and a

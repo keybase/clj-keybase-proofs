@@ -5,7 +5,7 @@
                   [adzerk/bootlaces "0.1.13" :scope "test"]])
 
 (require '[adzerk.bootlaces :refer [bootlaces! build-jar push-snapshot]])
-(def +version+ "0.1.0")
+(def +version+ "0.1.0-SNAPSHOT")
 (bootlaces! +version+)
 
 (task-options!

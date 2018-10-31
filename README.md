@@ -57,4 +57,13 @@ When linking to a user's Keybase profile on their profile page on your website, 
 ; https://keybase.io/alice_on_keybase/sigs/8514ae2f9083a3c867318437845855f702a4154d1671a19cf274fb2e6b7dec7c0f
 ```
 
+### Making a badge for a Keybase proof
+Points to an SVG image hosted on Keybase that displays the proof's status. Optional.
+```
+(keybase-proofs/make-badge-link identity-service-domain username keybase-username sig-hash)
+
+(keybase-proofs/make-badge-link "mysocialnetwork.com" "alice" "alice_on_keybase" "8514ae2f9083a3c867318437845855f702a4154d1671a19cf274fb2e6b7dec7c0f")
+; https://keybase.io/alice_on_keybase/proof_badge/8514ae2f9083a3c867318437845855f702a4154d1671a19cf274fb2e6b7dec7c0f?username=alice&domain=mysocialnetwork.com
+```
+
 This is a special link particular to the user's keybase proof. If it ever fails for some reason, the link will indicate that, but when it succeeds it goes to the user's Keybase profile as normal.

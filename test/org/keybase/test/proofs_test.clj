@@ -9,6 +9,10 @@
   (is (= (str "https://keybase.io/t_alice/sigs/" t-alice-good-sig-hash)
          (keybase-proofs/make-profile-link "t_alice" t-alice-good-sig-hash))))
 
+(deftest badge-link
+  (is (= (str "https://keybase.io/t_alice/proof_badge/" t-alice-good-sig-hash "?domain=social.io&username=socialalice")
+         (keybase-proofs/make-badge-link "social.io" "socialalice" "t_alice" t-alice-good-sig-hash))))
+
 (deftest bad-api-arguments
   (is (not (keybase-proofs/valid-proof? "twitter" "t_alice_" "t_alice" nil)))
   (is (not (keybase-proofs/proof-live? "twitter" "t_alice_" "t_alice" nil))))

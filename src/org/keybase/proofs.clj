@@ -7,11 +7,31 @@
   particular proof. The profile will indicate if the proof is valid and has not been revoked.
   Valid example:   https://keybase.io/t_alice/sigs/8514ae2f9083a3c867318437845855f702a4154d1671a19cf274fb2e6b7dec7c0f
   Invalid example: https://keybase.io/t_alice/sigs/cafefeed9083a3c867318437845855f702a4154d1671a19cf274fb2e6b7dec7c0f
+  Example HTML code:
+    <a href={make-profile-link-here}>
+      @{kb_username} on Keybase
+    </a>
   `keybase-username` is the user's username on Keybase.
   `sig-hash` is a hash provided when the user first posted the proof to the identity service."
   [keybase-username sig-hash]
   (let [url-template "https://keybase.io/%s/sigs/%s"]
     (format url-template keybase-username sig-hash)))
+
+(defn make-badge-link
+  "Returns a URL pointing to a SVG status badge for a particular proof.
+  The badge will indicate if the proof is currently valid or if there are any errors (e.g., if it has been revoked),
+  but does not display any usernames or the service name.
+  Example HTML code:
+    <a href={make-profile-link-here}>
+      <img alt=Keybase-Proof-Status src={make-badge-link-here}>
+    </a>
+  `identity-service-domain` is the domain configured in the config.json file sent to Keybase.
+  `username` is the user's username on the identity service.
+  `keybase-username` is the user's username on Keybase.
+  `sig-hash` is a hash provided when the user first posted the proof to the identity service."
+  [identity-service-domain username keybase-username sig-hash]
+  (let [url-template "https://keybase.io/%s/proof_badge/%s?domain=%s&username=%s"]
+    (format url-template keybase-username sig-hash identity-service-domain username)))
 
 (defn- get-proof-status [identity-service-domain username keybase-username sig-hash]
   "Helper function that returns the status of a proof using the Keybase API.

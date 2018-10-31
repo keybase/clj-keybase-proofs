@@ -58,7 +58,9 @@ When linking to a user's Keybase profile on their profile page on your website, 
 ```
 
 ### Making a badge for a Keybase proof
-Points to an SVG image hosted on Keybase that displays the proof's status. Optional.
+Points to an SVG image hosted on Keybase that displays the proof's status.
+Optional. Note that this using this link in an image tag will send a request to
+the Keybase servers to get the proof status.
 ```
 (keybase-proofs/make-badge-link identity-service-domain username keybase-username sig-hash)
 
@@ -66,4 +68,6 @@ Points to an SVG image hosted on Keybase that displays the proof's status. Optio
 ; https://keybase.io/alice_on_keybase/proof_badge/8514ae2f9083a3c867318437845855f702a4154d1671a19cf274fb2e6b7dec7c0f?username=alice&domain=mysocialnetwork.com
 ```
 
-This is a special link particular to the user's keybase proof. If it ever fails for some reason, the link will indicate that, but when it succeeds it goes to the user's Keybase profile as normal.
+This is a special link particular to the user's keybase proof. If it ever fails
+for some reason, the link will indicate that, but when it succeeds it goes to
+the user's Keybase profile as normal.

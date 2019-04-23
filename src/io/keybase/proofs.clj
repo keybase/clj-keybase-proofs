@@ -2,6 +2,13 @@
   "Helper functions for integrating services with Keybase proofs. Full documentation available at https://keybase.io/docs/proof_integration_guide."
   (:require [clj-http.client :as http-client]))
 
+(defn make-proof-success-redirect-link
+  "Returns a URL that the identity service should redirect to after
+  the successful creation of a Keybase proof."
+  [identity-service-domain keybase-username username token kb-ua]
+  (let [url-template "https://keybase.io/_/proof_creation_success?domain=%s&kb_username=%s&username=%s&sig_hash=%s&kb_ua=%s"]
+    (format url-template identity-service-domain keybase-username username token kb-ua)))
+
 (defn make-profile-link
   "Returns a URL pointing to a Keybase profile on https://keybase.io and a
   particular proof. The profile will indicate if the proof is valid and has not been revoked.

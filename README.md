@@ -20,7 +20,7 @@ clj-keybase-proofs "0.1.0-SNAPSHOT"
 And require into your namespace:
 
 ```
-(require '[org.keybase.proofs :as keybase-proofs])
+(require '[io.keybase.proofs :as keybase-proofs])
 ```
 
 ### Checking the validity of a proof

@@ -1,4 +1,4 @@
-(ns org.keybase.test.proofs-test
+(ns io.keybase.test.proofs-test
   (:require [org.keybase.proofs :as keybase-proofs]
             [clojure.test :refer :all]))
 

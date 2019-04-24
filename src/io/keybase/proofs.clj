@@ -69,7 +69,7 @@
   `username` is the user's username on the identity service.
   `keybase-username` is the user's username on Keybase."
   [identity-service-domain username keybase-username token]
-  (boolean (:valid_proof (get-proof-status "sig/proof_valid.json" identity-service-domain username keybase-username token))))
+  (boolean (:proof_valid (get-proof-status "sig/proof_valid.json" identity-service-domain username keybase-username token))))
 
 (defn proof-live?
   "Returns true if a proof is live and can be seen and verified by the Keybase servers and clients.
